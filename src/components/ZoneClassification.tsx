@@ -1,4 +1,4 @@
-
+import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Alert, AlertDescription } from '@/components/ui/alert';
@@ -189,7 +189,7 @@ const ZoneClassification = ({ zoneData }: ZoneClassificationProps) => {
                 </li>
                 <li className="flex items-center gap-2">
                   <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                  <span><strong>Green Zone:</strong> <3 accidents AND risk score <20</span>
+                  <span><strong>Green Zone:</strong> &lt;3 accidents AND risk score &lt;20</span>
                 </li>
               </ul>
             </div>
