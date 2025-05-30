@@ -1,4 +1,3 @@
-
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { AccidentData, ZoneData, getRiskColor } from '@/lib/accidentAnalysis';
@@ -36,7 +35,7 @@ const AccidentMap = ({ accidentData, zoneData }: AccidentMapProps) => {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-300"
           style={{
-            backgroundImage: `url('/lovable-uploads/37c9d574-ac80-4754-9bf6-8101a91355f6.png')`
+            backgroundImage: `url('/lovable-uploads/e9ec3d3b-1ad2-46e5-a8c3-e08f9f46853e.png')`
           }}
         />
         
