@@ -1,4 +1,3 @@
-
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { AccidentData, ZoneData, getRiskColor } from '@/lib/accidentAnalysis';
@@ -28,16 +27,16 @@ const AccidentMap = ({ accidentData, zoneData }: AccidentMapProps) => {
     <div className="space-y-6">
       {/* Map Visualization */}
       <div className="relative w-full h-96 bg-gray-100 rounded-lg border-2 border-gray-200 overflow-hidden">
-        {/* NYC Map Background */}
+        {/* Map Background */}
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-70"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1426604966848-d7adac402bff?w=800&h=600&fit=crop&crop=center')`
+            backgroundImage: `url('/lovable-uploads/37c9d574-ac80-4754-9bf6-8101a91355f6.png')`
           }}
         />
         
         {/* Overlay for better visibility */}
-        <div className="absolute inset-0 bg-blue-900 opacity-20"></div>
+        <div className="absolute inset-0 bg-blue-900 opacity-10"></div>
         
         <div className="absolute inset-0">
           {/* Zone Areas */}
