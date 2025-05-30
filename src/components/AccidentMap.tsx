@@ -28,7 +28,18 @@ const AccidentMap = ({ accidentData, zoneData }: AccidentMapProps) => {
     <div className="space-y-6">
       {/* Map Visualization */}
       <div className="relative w-full h-96 bg-gray-100 rounded-lg border-2 border-gray-200 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-green-50">
+        {/* NYC Map Background */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-70"
+          style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1426604966848-d7adac402bff?w=800&h=600&fit=crop&crop=center')`
+          }}
+        />
+        
+        {/* Overlay for better visibility */}
+        <div className="absolute inset-0 bg-blue-900 opacity-20"></div>
+        
+        <div className="absolute inset-0">
           {/* Zone Areas */}
           {zoneData.map((zone) => {
             const position = getPosition(zone.latitude, zone.longitude);
@@ -42,16 +53,16 @@ const AccidentMap = ({ accidentData, zoneData }: AccidentMapProps) => {
                 }}
               >
                 <div
-                  className="w-16 h-16 rounded-full opacity-40 flex items-center justify-center"
+                  className="w-16 h-16 rounded-full opacity-60 flex items-center justify-center animate-pulse"
                   style={{ backgroundColor: getRiskColor(zone.riskLevel) }}
                 >
                   <div
-                    className="w-8 h-8 rounded-full border-2 border-white"
+                    className="w-8 h-8 rounded-full border-2 border-white shadow-lg"
                     style={{ backgroundColor: getRiskColor(zone.riskLevel) }}
                   />
                 </div>
                 <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1">
-                  <div className="bg-white px-2 py-1 rounded shadow text-xs font-medium whitespace-nowrap">
+                  <div className="bg-white px-2 py-1 rounded shadow-lg text-xs font-medium whitespace-nowrap border">
                     {zone.name}
                   </div>
                 </div>
@@ -72,7 +83,7 @@ const AccidentMap = ({ accidentData, zoneData }: AccidentMapProps) => {
                 }}
               >
                 <div
-                  className={`w-2 h-2 rounded-full ${
+                  className={`w-3 h-3 rounded-full shadow-lg border border-white ${
                     accident.severity === 'fatal' ? 'bg-red-800' :
                     accident.severity === 'severe' ? 'bg-red-600' :
                     accident.severity === 'moderate' ? 'bg-orange-500' :
@@ -113,19 +124,19 @@ const AccidentMap = ({ accidentData, zoneData }: AccidentMapProps) => {
           <h4 className="font-semibold text-sm mb-2">Accident Severity</h4>
           <div className="space-y-1 text-xs">
             <div className="flex items-center gap-2">
-              <div className="w-2 h-2 rounded-full bg-red-800"></div>
+              <div className="w-3 h-3 rounded-full bg-red-800"></div>
               <span>Fatal</span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-2 h-2 rounded-full bg-red-600"></div>
+              <div className="w-3 h-3 rounded-full bg-red-600"></div>
               <span>Severe</span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-2 h-2 rounded-full bg-orange-500"></div>
+              <div className="w-3 h-3 rounded-full bg-orange-500"></div>
               <span>Moderate</span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-2 h-2 rounded-full bg-yellow-500"></div>
+              <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
               <span>Minor</span>
             </div>
           </div>

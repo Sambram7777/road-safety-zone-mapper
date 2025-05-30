@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -7,7 +8,6 @@ import ZoneClassification from '@/components/ZoneClassification';
 import AccidentDataTable from '@/components/AccidentDataTable';
 import { generateAccidentData, AccidentData, analyzeAccidentZones, ZoneData } from '@/lib/accidentAnalysis';
 import { MapPin, AlertTriangle, BarChart3, Database } from 'lucide-react';
-import GoogleMapsHeatMap from '@/components/GoogleMapsHeatMap';
 
 const Index = () => {
   const [accidentData, setAccidentData] = useState<AccidentData[]>([]);
@@ -51,7 +51,7 @@ const Index = () => {
             Road Accident Analysis System
           </h1>
           <p className="text-lg text-gray-600">
-            ML-powered accident frequency analysis and risk zone classification with Google Maps integration
+            ML-powered accident frequency analysis and risk zone classification
           </p>
         </div>
 
@@ -124,15 +124,11 @@ const Index = () => {
         </div>
 
         {/* Main Content */}
-        <Tabs defaultValue="googlemap" className="space-y-6">
-          <TabsList className="grid w-full grid-cols-5 bg-white shadow-sm">
-            <TabsTrigger value="googlemap" className="flex items-center gap-2">
-              <MapPin className="w-4 h-4" />
-              Google Maps
-            </TabsTrigger>
+        <Tabs defaultValue="map" className="space-y-6">
+          <TabsList className="grid w-full grid-cols-4 bg-white shadow-sm">
             <TabsTrigger value="map" className="flex items-center gap-2">
               <MapPin className="w-4 h-4" />
-              Simple Map
+              Risk Map
             </TabsTrigger>
             <TabsTrigger value="analysis" className="flex items-center gap-2">
               <BarChart3 className="w-4 h-4" />
@@ -148,16 +144,12 @@ const Index = () => {
             </TabsTrigger>
           </TabsList>
 
-          <TabsContent value="googlemap" className="space-y-4">
-            <GoogleMapsHeatMap accidentData={accidentData} zoneData={zoneData} />
-          </TabsContent>
-
           <TabsContent value="map" className="space-y-4">
             <Card className="shadow-lg">
               <CardHeader>
                 <CardTitle>Accident Risk Heat Map</CardTitle>
                 <CardDescription>
-                  Simple visualization showing accident frequency and risk zones
+                  Visualization showing accident frequency and risk zones across New York City
                 </CardDescription>
               </CardHeader>
               <CardContent>
